@@ -23,16 +23,18 @@ public class Cliente {
             ServenteCliente serventeCliente = new ServenteCliente(interfaceServidor);
 
             System.out.println("Cliente Rodando\n");
-            
-            serventeCliente.pedirCotacoes();
-            
-            TimeUnit.SECONDS.sleep(3);
-            
-            serventeCliente.pedirReservaTransfer(1);
-            
+
+            System.out.println("Pedindo listagem dos transfers: \n");
+            serventeCliente.pedirListaTransfers();
+
             TimeUnit.SECONDS.sleep(2);
-            
-            serventeCliente.pedirCotacoes();
+
+            serventeCliente.pedirCotacao(1);
+
+            TimeUnit.SECONDS.sleep(2);
+
+            serventeCliente.pedirReservaTransfer(2);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

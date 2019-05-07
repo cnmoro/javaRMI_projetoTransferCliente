@@ -18,8 +18,8 @@ public class ServenteCliente extends UnicastRemoteObject implements InterfaceCli
     }
 
     @Override
-    public void receberNotificacao(String interesse) throws RemoteException {
-
+    public void receberNotificacao(String mensagem) throws RemoteException {
+        System.out.println("Notificação recebida: " + mensagem);
     }
 
     @Override
@@ -28,21 +28,30 @@ public class ServenteCliente extends UnicastRemoteObject implements InterfaceCli
     }
 
     @Override
+    public void receberCotacao(String cotacao) throws RemoteException {
+        System.out.println("Cotação recebida: \n" + cotacao);
+    }
+
+    @Override
     public void receberConfirmacaoReserva(String mensagem) throws RemoteException {
         System.out.println("Tentativa de reserva: " + mensagem);
     }
 
     @Override
-    public void receberCotacoes(String cotacoes) throws RemoteException {
-        System.out.println("Cotações recebidas: \n" + cotacoes);
+    public void receberListagemTransfers(String cotacoes) throws RemoteException {
+        System.out.println("Transfers disponíveis: \n" + cotacoes);
     }
 
-    public void pedirCotacoes() throws RemoteException {
-        this.interfaceServer.exibirCotacoes(this);
+    public void pedirListaTransfers() throws RemoteException {
+        this.interfaceServer.exibirTransfers(this);
     }
 
     public void pedirReservaTransfer(int id) throws RemoteException {
         this.interfaceServer.reservarTransfer(id, this);
+    }
+
+    public void pedirCotacao(int id) throws RemoteException {
+        this.interfaceServer.realizarCotacao(id, this);
     }
 
 }
