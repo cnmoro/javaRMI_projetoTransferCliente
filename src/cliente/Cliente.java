@@ -29,7 +29,11 @@ public class Cliente {
 
             TimeUnit.SECONDS.sleep(2);
 
+            System.out.println("Pedindo cotação do transfer 1: \n");
             serventeCliente.pedirCotacao(1);
+            
+            System.out.println("Pedindo cotação do transfer 2: \n");
+            serventeCliente.pedirCotacao(2);
 
             TimeUnit.SECONDS.sleep(2);
 
