@@ -19,7 +19,7 @@ public class ServenteCliente extends UnicastRemoteObject implements InterfaceCli
 
     @Override
     public void receberNotificacao(String mensagem) throws RemoteException {
-        System.out.println("Notificação recebida: " + mensagem);
+        System.out.println("Notificação recebida: " + mensagem + "\n");
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ServenteCliente extends UnicastRemoteObject implements InterfaceCli
 
     @Override
     public void receberConfirmacaoReserva(String mensagem) throws RemoteException {
-        System.out.println("Tentativa de reserva: " + mensagem);
+        System.out.println("Tentativa de reserva: " + mensagem + "\n");
     }
 
     @Override

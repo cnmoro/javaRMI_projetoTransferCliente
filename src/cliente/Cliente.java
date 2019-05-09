@@ -24,20 +24,21 @@ public class Cliente {
 
             System.out.println("Cliente Rodando\n");
 
+            //TimeUnit.SECONDS.sleep(4);
+
             System.out.println("Pedindo listagem dos transfers: \n");
             serventeCliente.pedirListaTransfers();
 
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
 
-            System.out.println("Pedindo cotação do transfer 1: \n");
+            System.out.println("Pedindo cotação do transfer 1 \n");
             serventeCliente.pedirCotacao(1);
-            
-            System.out.println("Pedindo cotação do transfer 2: \n");
-            serventeCliente.pedirCotacao(2);
 
-            TimeUnit.SECONDS.sleep(2);
+            //System.out.println("Pedindo cotação do transfer 2: \n");
+            //serventeCliente.pedirCotacao(2);
+            TimeUnit.SECONDS.sleep(12);
 
-            serventeCliente.pedirReservaTransfer(2);
+            serventeCliente.pedirReservaTransfer(1);
 
         } catch (Exception e) {
             e.printStackTrace();
