@@ -45,8 +45,8 @@ public class ServenteCliente extends UnicastRemoteObject implements InterfaceCli
         this.interfaceServer.reservarTransfer(id, this);
     }
 
-    public void pedirCotacao(int id) throws RemoteException {
-        this.interfaceServer.realizarCotacao(id, this);
+    public void pedirCotacao(int id, int clienteId) throws RemoteException {
+        this.interfaceServer.realizarCotacao(id, clienteId, this);
     }
 
 }
