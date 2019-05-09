@@ -23,11 +23,6 @@ public class ServenteCliente extends UnicastRemoteObject implements InterfaceCli
     }
 
     @Override
-    public void adicionarInteresse(String interesse) throws RemoteException {
-
-    }
-
-    @Override
     public void receberCotacao(String cotacao) throws RemoteException {
         System.out.println("Cotação recebida: \n" + cotacao);
     }
