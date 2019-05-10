@@ -3,7 +3,7 @@ package cliente;
 import interfaces.InterfaceServCli;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.concurrent.TimeUnit;
+import java.util.Scanner;
 import serventes.ServenteCliente;
 
 /**
@@ -24,23 +24,40 @@ public class Cliente {
             //Cria servente do cliente com a referencia do servidor
             ServenteCliente serventeCliente = new ServenteCliente(interfaceServidor);
 
-            System.out.println("Cliente Rodando\n");
+            Scanner input = new Scanner(System.in);
 
-            //TimeUnit.SECONDS.sleep(4);
-            System.out.println("Pedindo listagem dos transfers: \n");
-            serventeCliente.pedirListaTransfers();
+            //Mostar menu de opções
+            while (true) {
+                System.out.println("\n-- Opções --");
+                System.out.println(
+                        "Escolha:\n"
+                        + "  1) Consultar lista de transfers\n"
+                        + "  2) Realizar cotação\n"
+                        + "  3) Reservar transfer\n"
+                );
 
-            TimeUnit.SECONDS.sleep(2);
+                int opcao = input.nextInt();
+                input.nextLine();
 
-            System.out.println("Pedindo cotação do transfer 1 \n");
-            serventeCliente.pedirCotacao(1, ClienteManager.clienteId);
-
-            //System.out.println("Pedindo cotação do transfer 2: \n");
-            //serventeCliente.pedirCotacao(2);
-            TimeUnit.SECONDS.sleep(15);
-
-            serventeCliente.pedirReservaTransfer(1);
-
+                switch (opcao) {
+                    case 1:
+                        serventeCliente.pedirListaTransfers();
+                        break;
+                    case 2:
+                        System.out.println("Insira o número do transfer: ");
+                        int numTransferCotacao = input.nextInt();
+                        serventeCliente.pedirCotacao(numTransferCotacao, ClienteManager.clienteId);
+                        break;
+                    case 3:
+                        System.out.println("Insira o número do transfer: ");
+                        int numTransferReserva = input.nextInt();
+                        serventeCliente.pedirReservaTransfer(numTransferReserva);
+                        break;
+                    default:
+                        System.out.println("Opção inválida\n");
+                        break;
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
